@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2020_04_25_191943) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
@@ -30,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_04_25_191943) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-
   add_foreign_key "comments", "articles"
 
+  
 end
