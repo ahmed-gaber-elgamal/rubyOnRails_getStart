@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  load_and_authorize_resource 
   http_basic_authenticate_with name: "ahmed", password: "15975322", except: [:index, :show]
 
     def index
@@ -18,7 +19,7 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params)
- 
+        @article.user_id=current_user.id
         if @article.save
             redirect_to @article
           else

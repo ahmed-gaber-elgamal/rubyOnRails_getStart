@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
+  # load_and_authorize_resource param_method: :my_sanitizer
+  # load_and_authorize_resource :through => :current_user
   http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
- 
+  
+
 
     def create
         @article = Article.find(params[:article_id])
